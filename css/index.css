@@ -1,0 +1,49 @@
+*{
+	margin: 0;
+  	padding: 0;
+  	text-decoration: none;
+  	font-family: 'Lobster Two', cursive;
+  	box-sizing: border-box;
+}
+
+
+body{
+	background-image: linear-gradient(120deg,#1c82c7,#c5c5c5);
+	background-size: cover;
+}
+
+.parallax { 
+  background-image: url("http://rokitseo.com/wp-content/uploads/2013/09/parallax_back.jpg");
+  height: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.icon{
+	text-align: center;
+}
+.card{
+	border-radius: 50px;
+}
+.card img{
+	border-style: solid;
+    border-radius: 50px;
+}
+
+.col-sm a{
+	color: black;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #212529;
+  color: white;
+  text-align: center;
+  
+   
+}
