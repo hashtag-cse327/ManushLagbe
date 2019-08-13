@@ -1,6 +1,8 @@
+{% extends 'nav.html' %}
 {% load static %}
+{% block content %}
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -20,14 +22,13 @@
     <title>ManushLagbe | Login</title>
   </head>
   <body>
-
   <form method="POST" class="login-form"> {% csrf_token %}
       <div class="container">
         
         <h5 style="margin-bottom: 20px; text-align: center;"> <b>Sign In</b> with your social account</h5>
         <div class="row justify-content-center">  
           <div class="col-sm">
-            <button type="button" class="btn btn-primary btn-lg"><i class="fab fa-facebook-square"><a href="{% url 'social:begin' 'facebook' %}"></i> Continue with Facebook</button> 
+            <button type="button" class="btn btn-primary btn-lg"><i class="fab fa-facebook-square"></i><a href="{% url 'social:begin' 'facebook' %}">Continue with Facebook</a></button> 
           </div>
 
           <div class="col-sm">
@@ -58,7 +59,7 @@
       
 
         <div class="bottom-text">
-          Don't have account? <a href="http://127.0.0.1:8000/register/">Sign up</a>
+          Don't have account? <a href="{% url 'register' %}">Sign up</a>
         </div>
    </form>
     
@@ -79,3 +80,5 @@
   
   </body>
 </html>
+
+{% endblock %}
