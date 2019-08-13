@@ -1,5 +1,7 @@
+{% extends 'nav.html' %}
 {% load static %}
-<!doctype html>
+{% block content %}
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -37,11 +39,11 @@
         <button type="submit" class="logbtn">Submit</button>
 
         <div class="bottom-text">
-          Already have an account? <a href="#">Sign In</a>
+          Already have an account? <a href="{% url 'login' %}">Sign In</a>
         </div>
    </form>
     
-
+ 
 
   <script type="text/javascript">
       $(".txtb input").on("focus",function(){
@@ -58,3 +60,5 @@
   
   </body>
 </html>
+
+{% endblock %}
