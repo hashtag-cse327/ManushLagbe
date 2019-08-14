@@ -25,10 +25,10 @@
   <form method="POST" class="login-form"> {% csrf_token %}
       <div class="container">
         
-        <h5 style="margin-bottom: 20px; text-align: center;"> <b>Sign In</b> with your social account</h5>
+        <h5 style="margin-bottom: 20px; text-align: center; color: black;"> <b>Sign In</b> with your social account</h5>
         <div class="row justify-content-center">  
           <div class="col-sm">
-            <button type="button" class="btn btn-primary btn-lg"><i class="fab fa-facebook-square"></i><a href="{% url 'social:begin' 'facebook' %}">Continue with Facebook</a></button> 
+            <button type="button" class="btn btn-primary btn-lg"><i class="fab fa-facebook-square"></i><a style="color: white;" href="{% url 'social:begin' 'facebook' %}">  Continue with Facebook</a></button> 
           </div>
 
           <div class="col-sm">
@@ -39,27 +39,27 @@
 
         <div class="head">
           <div class="row">
-            <hr> <span style="margin: 5px">OR</span> <hr>
+            <hr> <span style="margin: 5px; color: black;">OR</span> <hr>
           </div>
         </div>
 
 
-        <h5 style="text-align: center;"> <b>Sign In</b> with your username</h5> 
+        <h5 style="text-align: center; color: black;"> <b>Sign In</b> with your username</h5> 
       </div>
         <div class="txtb">
-          <span >{{username}}</span>
+          <input type="text">
+          <span data-placeholder="Username">{{username}}</span>
         </div>
 
         <div class="txtb">
-          <span>{{ form }}</span>
+          <input type="password">
+          <span  data-placeholder="Password">{{form}}</span>
         </div>
 
-        
-      <button type="submit" class="btn btn-default">Submit</button>
-      
+        <input type="submit" class="logbtn" value="Login">
 
         <div class="bottom-text">
-          Don't have account? <a href="{% url 'register' %}">Sign up</a>
+          <span style="color: black; font-size: 20px;">Don't have account? <a href="{% url 'register' %}">Sign up</a></span>
         </div>
    </form>
     
