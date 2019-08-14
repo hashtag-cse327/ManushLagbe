@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'Manushlagbecore',
     'signin',
     'signup',
+    'mehedi',
+    'photography',
+    'driver',
+    'volunteer',
 ]
 
 MIDDLEWARE = [
