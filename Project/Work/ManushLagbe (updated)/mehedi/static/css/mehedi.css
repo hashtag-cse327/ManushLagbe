@@ -1,0 +1,41 @@
+
+
+.parallax { 
+  /* The image used */
+  background-image: url("http://www.digished.in/wp-content/uploads/2019/02/Mehndi-Ceremony01.jpg");
+
+  /* Set a specific height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body{
+	color: white;
+	text-align: center;
+}
+
+
+.glow {
+  font-size: 100px;
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #d94e0a, 0 0 40px #d94e0a, 0 0 50px #d94e0a, 0 0 60px #d94e0a, 0 0 70px #d94e0a;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #d1450a, 0 0 40px #d1450a, 0 0 50px #d1450a, 0 0 60px #d1450a, 0 0 70px #d1450a, 0 0 80px #d1450a;
+  }
+}
