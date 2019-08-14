@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    'Manushlagbecore'
+    'Manushlagbecore',
+    'signin',
+    'signup',
 ]
 
 MIDDLEWARE = [
