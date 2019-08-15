@@ -16,15 +16,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
 
     <title>ManushLagbe | Login</title>
   </head>
   <body>
-  <form method="POST" class="login-form"> {% csrf_token %}
+
+    <button class="btn-dark bdit"  onclick="toggler('myContent1');">CUSTOMER LOGIN <i class="fas fa-arrow-circle-right"></i> </button>
+    <button class="btn-dark bdit"  onclick="toggler('myContent');">SERVICE PROVIDER LOGIN <i class="fas fa-arrow-circle-right"></i> </button>
+
+    <div class="customer" id="myContent1" style="display:none;">
+    <form method="POST" class="login-form"> {% csrf_token %}
       <div class="container">
-        
+        <h4 style="text-align: center; color: red;">Customer Login</h4>
         <h5 style="margin-bottom: 20px; text-align: center; color: black;"> <b>Sign In</b> with your social account</h5>
         <div class="row justify-content-center">  
           <div class="col-sm">
@@ -62,7 +67,56 @@
           <span style="color: black; font-size: 20px;">Don't have account? <a href="{% url 'register' %}">Sign up</a></span>
         </div>
    </form>
-    
+ </div>
+
+ <div class="sprovider" id="myContent" style="display:none;">
+    <form method="POST" class="login-form"> {% csrf_token %}
+      <div class="container">
+        <h4 style="text-align: center; color: red;">Service Provider Login</h4>
+        <h5 style="margin-bottom: 20px; text-align: center; color: black;"> <b>Sign In</b> with your social account</h5>
+        <div class="row justify-content-center">  
+          <div class="col-sm">
+            <button type="button" class="btn btn-primary btn-lg"><i class="fab fa-facebook-square"></i><a style="color: white;" href="{% url 'social:begin' 'facebook' %}">  Continue with Facebook</a></button> 
+          </div>
+
+          <div class="col-sm">
+            <button type="button" class="btn btn-danger btn-lg"><i class="fab fa-google-plus-square"></i> Continue with Google</button> 
+          </div>
+        </div>
+      
+
+        <div class="head">
+          <div class="row">
+            <hr> <span style="margin: 5px; color: black;">OR</span> <hr>
+          </div>
+        </div>
+
+
+        <h5 style="text-align: center; color: black;"> <b>Sign In</b> with your username</h5> 
+      </div>
+        <div class="txtb">
+          <input type="text">
+          <span data-placeholder="Username">{{username}}</span>
+        </div>
+
+        <div class="txtb">
+          <input type="password">
+          <span  data-placeholder="Password">{{form}}</span>
+        </div>
+
+        <input type="submit" class="logbtn" value="Login">
+
+        <div class="bottom-text">
+          <span style="color: black; font-size: 20px;">Don't have account? <a href="{% url 'register' %}">Sign up</a></span>
+        </div>
+   </form>
+ </div>
+   
+   <script type="text/javascript">
+        function toggler(divId) {
+      $("#" + divId).toggle();
+      }
+    </script> 
 
 
   <script type="text/javascript">
