@@ -8,14 +8,23 @@
 body{
   min-height: 100vh;
   background-image: linear-gradient(120deg,#1c82c7,#c5c5c5);
+  text-align: center;
 }
 
+.bdit{
+  color:#f7f7f7;
+  text-align: center;
+  width: 40%;
+  margin-top: 20px;
+  padding:10px;
+  margin-left: 80px;
+}
 
 .login-form{
   width: 400px;
   background: #f1f1f1;
   height: 625px;
-  padding: 80px 40px;
+  padding: 30px 30px;
   border-radius: 10px;
   position: absolute;
   left: 50%;
@@ -90,7 +99,7 @@ body{
 }
 
 .bottom-text{
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
   font-size: 13px;
 }
