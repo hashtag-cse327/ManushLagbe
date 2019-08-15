@@ -10,6 +10,14 @@ body{
   background-image: linear-gradient(120deg,#1c82c7,#c5c5c5);
 }
 
+.bdit{
+  color:#f7f7f7;
+  text-align: center;
+  width: 40%;
+  margin-top: 20px;
+  padding:10px;
+  margin-left: 80px;
+}
 
 .login-form{
   width: 400px;
