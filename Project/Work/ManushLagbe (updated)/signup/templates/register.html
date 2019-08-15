@@ -12,16 +12,20 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="{% static 'css/signu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
 
     <title>ManushLagbe | Sign Up</title>
   </head>
   <body>
-    
+  
+  <button class="btn-dark bdit"  onclick="toggler('myContent1');">CUSTOMER SIGNUP <i class="fas fa-arrow-circle-right"></i> </button>
+    <button class="btn-dark bdit"  onclick="toggler('myContent');">SERVICE PROVIDER SIGNUP <i class="fas fa-arrow-circle-right"></i> </button>
+
+  <div class="customer" id="myContent1" style="display:none;">
   <form method='POST' action="signup.html" class="login-form"> {% csrf_token %}
         
-        <h1 style="color: #4c95c6; ">Sign Up</h1>
+        <h2 style="color: #4c95c6; text-align: center;">Customer Sign Up</h2>
         <div class="txtb">
           <input type="text">
           <span data-placeholder="Name"></span>
@@ -53,7 +57,51 @@
           <span style="font-size: 20px;">Already have an account? <a href="{% url 'login' %}">Sign In</a></span>
         </div>
    </form>
+   </div>
+
+   <div class="sprovider" id="myContent" style="display:none;">
+  <form method='POST' action="signup.html" class="login-form"> {% csrf_token %}
+        
+        <h2 style="color: #4c95c6; text-align: center;">Service Provider Sign Up</h2>
+        <div class="txtb">
+          <input type="text">
+          <span data-placeholder="Name"></span>
+        </div>
+
+        <div class="txtb">
+          <input type="Email">
+          <span data-placeholder="Email"></span>
+        </div>
+
+        <div class="txtb">
+          <input type="text">
+          <span data-placeholder="Phone No."></span>
+        </div>
+
+        <div class="txtb">
+          <input type="password">
+          <span data-placeholder="Password"></span>
+        </div>
+
+        <div class="txtb">
+          <input type="password">
+          <span data-placeholder="Re-enter Password"></span>
+        </div>
+
+        <input type="submit" class="logbtn" value="Create an account">
+
+        <div class="bottom-text">
+          <span style="font-size: 20px;">Already have an account? <a href="{% url 'login' %}">Sign In</a></span>
+        </div>
+   </form>
+   </div>
     
+
+  <script type="text/javascript">
+        function toggler(divId) {
+      $("#" + divId).toggle();
+      }
+    </script>  
 
 
   <script type="text/javascript">
