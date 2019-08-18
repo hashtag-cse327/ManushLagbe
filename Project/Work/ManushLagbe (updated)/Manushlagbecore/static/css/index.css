@@ -124,11 +124,11 @@ body{
 }
 
 .notes {
-  height: 50%; 
+  height: 50%;
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on front*/
-  bottom: -180px; /* Stay at the bottom */
-  left: 0;
+  bottom: -65px; /* Stay at the bottom */
+  left: -50px;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
