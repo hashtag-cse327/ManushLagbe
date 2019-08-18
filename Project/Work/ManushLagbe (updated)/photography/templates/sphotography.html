@@ -1,0 +1,117 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/photography.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+    <title>ManushLagbe | Photography Service</title>
+  </head>
+  <body class="parallax">
+  	
+  	<div class="container">
+  		
+  		<h1 class="glow">Photography Service</h1>
+
+      <div class="customer" >
+              <div class="container" style="background-color: #ffffffb0; padding: 0; text-align: center;color: black;">
+                <div class="shadow-lg p-3 mb-5 bg-dark rounded" style="text-align: center;color: white;"><h1>Register Here!</h1></div>
+                <form method="post"  style="padding: 20px;">
+
+                  
+                      <label><i class="fa fa-user"></i> Full Name</label><br>
+                      <input type="text" name="firstname" placeholder="Bahalul Haque" style="margin-bottom: 5px;width: 70%; text-align: center;" required> <br>
+                      
+                      <label><i class="fas fa-mobile-alt"></i> Mobile Number</label><br>
+                      <input type="text" name="mob" placeholder="01XXXXXXXXX" style="margin-bottom: 5px;width: 70%; text-align: center;" required> <br>
+                      
+                      <label><i class="fas fa-home"></i> Address</label><br>
+                      <input type="text" name="address" placeholder="House:5, Malibagh, Dhaka" style="margin-bottom: 5px;width: 70%; text-align: center;" required> <br>
+                      
+                      <div class="input-group mb-3" style="margin:10px 0px 10px 160px; ;width: 70%;">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                        </div>
+                        <select  class="custom-select" id="inputGroupSelect01">
+                          <option selected">Choose...</option>
+                          <option value="1">Male</option>
+                          <option value="2">Female</option>
+                        </select>
+ 
+                    </div>
+
+                    <label> Age</label><br>
+                    <input type="text" name="mob" placeholder="21" style="width: 70%; text-align: center;" required> <br>
+
+                    <div class="shadow-lg p-3 mb-5 bg-dark rounded" style="margin-top: 10px;text-align: center;color: white;"><h3 style="padding: 0; margin: 0;">About your skills and pricing!</h3></div>
+
+                    <div class="input-group mb-3" style="margin:10px 0px 10px 160px; ;width: 70%;">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">What type of photographer you are?</label>
+                        </div>
+                        <select  class="custom-select" id="inputGroupSelect01">
+                          <option selected">Choose...</option>
+                          <option value="1">Small Event</option>
+                          <option value="2">Large Event</option>
+                          <option value="3">Both</option>
+                        </select>
+ 
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Small Event Charge?</label>
+                      </div>
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">TK</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                      <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect02">Large Event Charge?</label>
+                      </div>
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">TK</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                      <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                    </div>                  
+                   
+                  <input style="margin-top: 10px;" class="btn btn-primary"  name="confirm" value="Confim">
+                </form>
+            
+              </div>
+            </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+        function toggler(divId) {
+      $("#" + divId).toggle();
+      }
+      </script>
+
+
+  </body>
+</html>
+
+{% endblock %}
