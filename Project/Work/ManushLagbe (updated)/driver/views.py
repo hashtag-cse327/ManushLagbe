@@ -6,3 +6,6 @@ from django.views.generic import TemplateView
 
 class DriverView(TemplateView):
 	template_name = 'driver.html'
+
+class SdriverView(TemplateView):
+	template_name = 'sdriver.html'
