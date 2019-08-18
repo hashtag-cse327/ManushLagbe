@@ -6,3 +6,6 @@ from django.views.generic import TemplateView
 
 class VolunteerView(TemplateView):
 	template_name = 'volunteer.html'
+
+class SvolunteerView(TemplateView):
+	template_name = 'svolunteer.html'
