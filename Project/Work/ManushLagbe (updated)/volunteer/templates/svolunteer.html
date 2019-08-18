@@ -26,11 +26,13 @@
   		<div class="customer" >
               <div class="container" style="background-color: #ffffffb0; padding: 0; text-align: center;color: black;">
                 <div class="shadow-lg p-3 mb-5 bg-dark rounded" style="text-align: center;color: white;"><h1>Register Here!</h1></div>
-                <form method="post"  style="padding: 20px;">
+                
+              <form class="contact-form" method="post" action="/volunteer_form_submission/"  style="padding: 20px;">
+                {% csrf_token %}
 
                   
                       <label><i class="fa fa-user"></i> Full Name</label><br>
-                      <input type="text" name="firstname" placeholder="Bahalul Haque" style="margin-bottom: 5px;width: 70%; text-align: center;" required> <br>
+                      <input type="text" name="name" placeholder="Bahalul Haque" style="margin-bottom: 5px;width: 70%; text-align: center;" required> <br>
                       
                       <label><i class="fas fa-mobile-alt"></i> Mobile Number</label><br>
                       <input type="text" name="mob" placeholder="01XXXXXXXXX" style="margin-bottom: 5px;width: 70%; text-align: center;" required> <br>
@@ -42,16 +44,16 @@
                         <div class="input-group-prepend">
                           <label class="input-group-text" for="inputGroupSelect01">Gender</label>
                         </div>
-                        <select  class="custom-select" id="inputGroupSelect01">
+                        <select  class="custom-select" id="inputGroupSelect01" name="gender">
                           <option selected">Choose...</option>
-                          <option value="1">Male</option>
-                          <option value="2">Female</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
                         </select>
  
                     </div>
 
                     <label> Age</label><br>
-                    <input type="text" name="mob" placeholder="21" style="width: 70%; text-align: center;" required> <br>
+                    <input type="text" name="age" placeholder="21" style="width: 70%; text-align: center;" required> <br>
 
                     <div class="shadow-lg p-3 mb-5 bg-dark rounded" style="margin-top: 10px;text-align: center;color: white;"><h3 style="padding: 0; margin: 0;">Enter Price you want to charge!</h3></div>
 
@@ -63,13 +65,13 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text">TK</span>
                       </div>
-                      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                      <input name="price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                       <div class="input-group-append">
                         <span class="input-group-text">.00</span>
                       </div>
                     </div>                  
                    
-                  <input style="margin-top: 10px;" class="btn btn-primary"  name="confirm" value="Confim">
+                  <button style="margin-top: 10px;" class="btn btn-primary"  name="confirm" value="Confim">Confirm</button>
                 </form>
             
               </div>
