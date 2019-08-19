@@ -51,14 +51,19 @@ def volunteer_search(request):
 		address=address,event_type=event,volunteer_number=number,hours=hours)  #moving data to db
 
 	customer_volunteer.save()     #saving data in db
-
-	return render(request, 'v_list.html')
-
-def volunteer_list(request):
 	volunteers= Volunteer.objects.all()
 	context={
 		"object_list": volunteers,                           #fetching data from database
 	}
 	return render(request,"v_list.html",context)
+
+	return render(request, 'v_list.html')
+
+# def volunteer_list(request):
+# 	volunteers= Volunteer.objects.all()
+# 	context={
+# 		"object_list": volunteers,                           #fetching data from database
+# 	}
+# 	return render(request,"v_list.html",context)
 
 
