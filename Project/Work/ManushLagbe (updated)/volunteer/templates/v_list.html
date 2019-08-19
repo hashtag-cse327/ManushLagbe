@@ -1,0 +1,48 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/volunteer.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+    <title>ManushLagbe | Volunteer List</title>
+
+</head>
+<body class="parallax">
+	<section>
+		<div class="customer" id="myContent2" >
+                    <div class="container" style="background-color: #ffffffb0; padding: 0; margin-top: 10px;">
+                      <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>List Of Service Providers</h1></div>
+                      <form class="login-form" style="padding: 10px; text-align: left;color: black;"> {% csrf_token %}
+            
+                          <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                          </ul>
+
+                         
+                      </form>
+                  
+                    </div>
+                  </div>
+
+
+
+	</section>
+
+</body>
+</html>
+
+{% endblock %}
