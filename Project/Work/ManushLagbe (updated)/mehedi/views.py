@@ -3,7 +3,8 @@ from . import views
 from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Mehedi
+from .models import Mehedi 
+from .models import Mehedi_Customer
 
 # Create your views here.
 
@@ -12,6 +13,9 @@ class MehediView(TemplateView):
 
 class SmehediView(TemplateView):
 	template_name = 'smehedi.html'
+
+class Mehedi_artist_list(TemplateView):
+	template_name = 'msp_list.html'
 
 def mehedi_form_submission(request):
 	print("Your data is saved!!!")
@@ -32,3 +36,19 @@ def mehedi_form_submission(request):
 	mehedi.save()
 
 	return render(request, 'sindex.html')
+
+def mehedi_customer_form_submission(request):
+	print("Your data is saved!!!")
+	name = request.POST['name']
+	mob = request.POST['mob']
+	address = request.POST['address']
+
+	hand = request.POST['hand']
+	artists = request.POST['artists']
+
+	mehedi_customer = Mehedi_Customer(name=name, mob=mob, address=address,
+						hand=hand,no_of_artist=artists)
+
+	mehedi_customer.save()
+
+	return render(request, 'msp.html')
