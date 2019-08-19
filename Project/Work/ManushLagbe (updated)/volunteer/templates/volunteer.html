@@ -23,48 +23,39 @@
   		
   		<h1 class="glow">Volunteer Service</h1>
 
-  		<div class="row">
-        <div class="col-sm">
-
             <div class="customer" >
               <div class="container" style="background-color: #ffffffb0; padding: 0;">
                 <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>Give Your Information</h1></div>
-                <form method="post"  style="padding: 20px;">
-
+                <form class="contact_form" method="post" action="/volunteer_search/"  style="padding: 20px;">
+                  {% csrf_token %}
                   <div class="row" style="text-align: right; color: black;">
                     <div class="col-sm" style="width: 20%">
                       <label><i class="fa fa-user"></i> Full Name</label>
-                      <input type="text" name="firstname" placeholder="Bahalul Haque" style="width: 70%; text-align: center;" required><br>
+                      <input type="text" name="name" placeholder="Bahalul Haque" style="width: 70%; text-align: center;" required><br>
                       <label><i class="fas fa-mobile-alt"></i> Mobile Number</label>
                       <input type="text" name="mob" placeholder="01XXXXXXXXX" style="width: 70%; text-align: center;" required><br>
                       <label><i class="fas fa-home"></i> Address</label>
                       <input type="text" name="address" placeholder="House:5, Malibagh, Dhaka" style="width: 70%; text-align: center;" required><br>
                       
+                    
+                  
+                     <input style="margin-top: 10px;" class="btn btn-primary"  name="checkout" value="Next" onclick="toggler('myContent1');">
                     </div>
-                  </div>
-                  <input style="margin-top: 10px;" class="btn btn-primary"  name="checkout" value="Next" onclick="toggler('myContent1');">
-                </form>
-            
-              </div>
-            </div> 
 
-      </div>
-
-      <div class="col-sm">
+                     <div class="col-sm">
 
             <div class="customer" id="myContent1" style="display:none;">
               <div class="container" style="background-color: #ffffffb0; padding: 0;">
-                <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>Select Services</h1></div>
-                <form class="login-form" style="padding: 10px;"> {% csrf_token %}
+                <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1 style="color: white;text-align: center;">Select Services</h1></div>
       
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <label class="input-group-text" for="inputGroupSelect01">For?</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01">
+                        <select name="event" class="custom-select" id="inputGroupSelect01">
                           <option selected>Choose...</option>
-                          <option value="1">Small Event</option>
-                          <option value="2">Big Event</option>
+                          <option value="Small Event">Small Event</option>
+                          <option value="Big Event">Big Event</option>
                         </select>
                     </div>
 
@@ -72,16 +63,16 @@
                         <div class="input-group-prepend">
                           <label class="input-group-text" for="inputGroupSelect01">No. of volunteers?</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01">
+                        <select name="number" class="custom-select" id="inputGroupSelect01">
                           <option selected>Choose...</option>
-                          <option value="1">2</option>
-                          <option value="2">4</option>
-                          <option value="3">6</option>
-                          <option value="4">10</option>
-                          <option value="5">20</option>
-                          <option value="6">30</option>
-                          <option value="7">40</option>
-                          <option value="8">50</option>
+                          <option value="2">2</option>
+                          <option value="4">4</option>
+                          <option value="6">6</option>
+                          <option value="10">10</option>
+                          <option value="20">20</option>
+                          <option value="30">30</option>
+                          <option value="40">40</option>
+                          <option value="50">50</option>
                         </select>
                     </div>
 
@@ -89,7 +80,7 @@
                         <div class="input-group-prepend">
                           <label class="input-group-text" for="inputGroupSelect01">Hours?</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01">
+                        <select name="hours" class="custom-select" id="inputGroupSelect01">
                           <option selected>Choose...</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -99,36 +90,16 @@
                         </select>
                     </div>
 
-                    <input style="margin-top: 10px;" class="btn btn-primary"  name="confirm" value="Confirm" onclick="toggler('myContent2');">
+                    <button style="margin-top: 10px;" class="btn btn-primary"  name="confirm" value="Confirm" onclick="toggler('myContent2');">Confirm</button>
 
-                   
                 </form>
+
             
               </div>
             </div> 
+          </div>
 
-	      </div>
-	    </div>
-
-                 <div class="customer" id="myContent2" style="display:none;">
-                    <div class="container" style="background-color: #ffffffb0; padding: 0; margin-top: 10px;">
-                      <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>List Of Service Providers</h1></div>
-                      <form class="login-form" style="padding: 10px; text-align: left;color: black;"> {% csrf_token %}
-            
-                          <ul>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                          </ul>
-
-                         
-                      </form>
-                  
-                    </div>
-                  </div>
-
-     </div>
+     
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
