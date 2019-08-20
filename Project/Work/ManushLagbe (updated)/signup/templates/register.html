@@ -23,35 +23,18 @@
     <button class="btn-dark bdit"  onclick="toggler('myContent');">SERVICE PROVIDER SIGNUP <i class="fas fa-arrow-circle-right"></i> </button>
 
   <div class="customer" id="myContent1" style="display:none;">
-  <form method='POST' action="signup.html" class="login-form"> {% csrf_token %}
+  <form method='POST'  class="login-form"> {% csrf_token %}
         
         <h2 style="color: #4c95c6; text-align: center;">Customer Sign Up</h2>
-        <div class="txtb">
-          <input type="text">
-          <span data-placeholder="Name"></span>
-        </div>
+
 
         <div class="txtb">
-          <input type="Email">
-          <span data-placeholder="Email"></span>
+          <span >{{ form }}</span>
         </div>
 
-        <div class="txtb">
-          <input type="text">
-          <span data-placeholder="Phone No."></span>
-        </div>
+        
 
-        <div class="txtb">
-          <input type="password">
-          <span data-placeholder="Password"></span>
-        </div>
-
-        <div class="txtb">
-          <input type="password">
-          <span data-placeholder="Re-enter Password"></span>
-        </div>
-
-        <input type="submit" class="logbtn" value="Create an account">
+        <button type="submit" class="logbtn">Submit</button>
 
         <div class="bottom-text">
           <span style="font-size: 20px;">Already have an account? <a href="{% url 'login' %}">Sign In</a></span>
@@ -60,35 +43,18 @@
    </div>
 
    <div class="sprovider" id="myContent" style="display:none;">
-  <form method='POST' action="signup.html" class="login-form"> {% csrf_token %}
+    
+  <form method='POST'  class="login-form"> {% csrf_token %}
         
         <h2 style="color: #4c95c6; text-align: center;">Service Provider Sign Up</h2>
-        <div class="txtb">
-          <input type="text">
-          <span data-placeholder="Name"></span>
-        </div>
+        
 
         <div class="txtb">
-          <input type="Email">
-          <span data-placeholder="Email"></span>
+          <span >{{ form }}</span>
         </div>
 
-        <div class="txtb">
-          <input type="text">
-          <span data-placeholder="Phone No."></span>
-        </div>
 
-        <div class="txtb">
-          <input type="password">
-          <span data-placeholder="Password"></span>
-        </div>
-
-        <div class="txtb">
-          <input type="password">
-          <span data-placeholder="Re-enter Password"></span>
-        </div>
-
-        <input type="submit" class="logbtn" value="Create an account">
+        <button type="submit" class="logbtn">Submit</button>
 
         <div class="bottom-text">
           <span style="font-size: 20px;">Already have an account? <a href="{% url 'login' %}">Sign In</a></span>
