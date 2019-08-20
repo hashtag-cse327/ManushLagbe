@@ -23,7 +23,7 @@ def mehedi_form_submission(request):
 	mob = request.POST['mob']
 	address = request.POST['address']
 	gender = request.POST['gender']
-	age = request.POST['age']
+	age = request.POST['age']					#saving data to the variables for forms
 	price_ohos = request.POST['price_ohos']
 	price_ohbs = request.POST['price_ohbs']
 	price_thos = request.POST['price_thos']
@@ -41,7 +41,7 @@ def mehedi_customer_form_submission(request):
 	print("Your data is saved!!!")
 	name = request.POST['name']
 	mob = request.POST['mob']
-	address = request.POST['address']
+	address = request.POST['address']							 #saving data in variables from customers of mehedi
 
 	hand = request.POST['hand']
 	artists = request.POST['artists']
@@ -49,6 +49,13 @@ def mehedi_customer_form_submission(request):
 	mehedi_customer = Mehedi_Customer(name=name, mob=mob, address=address,
 						hand=hand,no_of_artist=artists)
 
-	mehedi_customer.save()
+	
+	mehedi_customer.save()     #saving data in db
+	
+	m_artist = Mehedi.objects.all()
+	context={
+		"object_list": m_artist,                           #fetching data from database
+	}
+	return render(request,'msp.html',context)
 
 	return render(request, 'msp.html')
