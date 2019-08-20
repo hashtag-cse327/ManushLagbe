@@ -1,0 +1,70 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/driver.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+    <title>ManushLagbe | Driver List</title>
+</head>
+<body>
+	<section>
+		<div class="customer" id="myContent2">
+                    <div class="container" style="background-color: #ffffffb0; padding: 0; margin-top: 10px;">
+                      <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>List Of Service Providers</h1></div>
+                      <form class="login-form" style="padding: 10px; text-align: left;color: black;"> 
+                      	{% csrf_token %}
+                          <div class="container" style="color: black;">
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Mobile</th>
+                                  <th scope="col">Address</th>
+                                  <th scope="col">Gender</th>
+                                  <th scope="col">Age</th>
+                                  <th scope="col">Transmission</th>
+                                  <th scope="col">Auto Price per hour</th>
+                                  <th scope="col">Manual Price per hour</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                              {% for drivers in object_list %}
+                              <tbody>
+                                <tr>
+                                  <td> {{drivers.name}}  </td>
+                                  <td> {{drivers.mob}} </td>
+                                  <td> {{drivers.address}} </td>
+                                  <td> {{drivers.gender}} </td>
+                                  <td> {{drivers.age}} </td>
+                                  <td> {{drivers.transmission}} </td>
+                                  <td> {{drivers.auto_price}} </td>
+                                  <td> {{drivers.manual_price}} </td>
+                                  <td> <button  class="btn btn-danger">HIRE</button> </td>
+                                </tr>
+                                
+                              </tbody>
+                              {% endfor %}
+                            </table>
+                          </div>
+
+                         
+                      </form>
+                  
+                    </div>
+                  </div>
+	</section>
+
+</body>
+</html>
+{% endblock %}
