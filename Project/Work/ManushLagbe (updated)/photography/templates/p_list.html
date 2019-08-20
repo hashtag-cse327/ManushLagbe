@@ -1,5 +1,6 @@
+{% extends 'nav.html' %}
 {% load static %}
-
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,16 +25,39 @@
                       <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>List Of Service Providers</h1></div>
                       <form class="login-form" style="padding: 10px; text-align: left;color: black;"> {% csrf_token %}
             
-                          <ul>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                          </ul>
-
-                         
-                      </form>
-                  
+                          <div class="container" style="color: black;">
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Mobile</th>
+                                  <th scope="col">Address</th>
+                                  <th scope="col">Gender</th>
+                                  <th scope="col">Age</th>
+                                  <th scope="col">Photographer Type</th>
+                                  <th scope="col">Small Event Charge</th>
+                                  <th scope="col">Large Event Charge</th>
+                                </tr>
+                              </thead>
+                              {% for photography in object_list %}
+                              <tbody>
+                                <tr>
+                                  <td> {{photography.name}}  </td>
+                                  <td> {{photography.mob}} </td>
+                                  <td> {{photography.address}} </td>
+                                  <td> {{photography.gender}} </td>
+                                  <td> {{photography.age}} </td>
+                                  <td> {{photography.photographer_type}} </td>
+                                  <td> {{photography.small_event_charge}} </td>
+                                  <td> {{photography.large_event_charge}} </td>
+                                  <td> <button  class="btn btn-danger">HIRE</button> </td>
+                                </tr>
+                                
+                              </tbody>
+                              {% endfor %}
+                            </table>
+                          </div>
+                      </form>             
                     </div>
         </div>
 	</div>
@@ -41,3 +65,5 @@
 
 </body>
 </html>
+
+{% endblock %}
