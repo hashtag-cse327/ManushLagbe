@@ -1,6 +1,6 @@
-
+{% extends 'nav.html' %}
 {% load static %}
-
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,18 +21,47 @@
     <section>
         <div class="container">
             
-            <div class="customer" id="myContent2" style="display:none;">
+            <div class="customer" id="myContent2">
 
                     <div class="container" style="background-color: #ffffffb0; padding: 0; margin-top: 10px;">
                       <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>List Of Service Providers</h1></div>
                       <form class="login-form" style="padding: 10px; text-align: left;color: black;"> {% csrf_token %}
-            
-                          <ul>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                          </ul>
+                       {% csrf_token %}
+                          <div class="container" style="color: black;">
+                            <table class="table" style="text-align: center;">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Mobile</th>
+                                  <th scope="col">Address</th>
+                                  <th scope="col">Gender</th>
+                                  <th scope="col">Age</th>
+                                  <th scope="col">One hand one side</th>
+                                  <th scope="col">One hand both side</th>
+                                  <th scope="col">Two hand one side</th>
+                                  <th scope="col">Two hand both side</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                              {% for m_artist in object_list %}
+                              <tbody>
+                                <tr>
+                                  <td> {{m_artist.name}}  </td>
+                                  <td> {{m_artist.mob}} </td>
+                                  <td> {{m_artist.address}} </td>
+                                  <td> {{m_artist.gender}} </td>
+                                  <td> {{m_artist.age}} </td>
+                                  <td> {{m_artist.price_ohos}} </td>
+                                  <td> {{m_artist.price_ohbs}} </td>
+                                  <td> {{m_artist.price_thos}} </td>
+                                  <td> {{m_artist.price_thbs}} </td>
+                                  <td> <button  class="btn btn-danger">HIRE</button> </td>
+                                </tr>
+                                
+                              </tbody>
+                              {% endfor %}
+                            </table>
+                          </div>
 
                          
                       </form>
@@ -44,3 +73,5 @@
     </section>
     </body>
 </html>
+
+{% endblock %}
