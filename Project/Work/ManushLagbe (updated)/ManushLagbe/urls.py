@@ -26,7 +26,7 @@ urlpatterns = [
     path('', include('photography.urls')),
     path('', include('driver.urls')),
     path('', include('volunteer.urls')),
-    path("login/", views.login, name="login"),
+    path('login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
     path('social-auth/', include('social_django.urls', namespace="social")),
     
