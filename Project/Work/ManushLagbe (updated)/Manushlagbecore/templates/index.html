@@ -103,6 +103,9 @@
 </div>  
 <!-- Slider Ends -->
 
+  
+  {% if user.is_authenticated %}
+
 
   <div class="notes">
     <ul>
@@ -165,6 +168,9 @@
     
   </div>
 </div>
+{% else %}
+
+{% endif %}
 
     
   <div class="footer" style="margin: 0;">
