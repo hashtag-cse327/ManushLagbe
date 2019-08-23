@@ -18,6 +18,7 @@
     <title>ManushLagbe | Photographer List</title>
 </head>
 <body class="parallax">
+  {% if user.is_authenticated %}
 	<section>
 	<div class="container">
 		<div class="customer" id="myContent2">
@@ -62,6 +63,9 @@
         </div>
 	</div>
 	</section>
+  {% else %}
+     <h1 style="color: white; background: #00000066;">Login to get access to this page!</h1>
+     {% endif %}
 
 </body>
 </html>
