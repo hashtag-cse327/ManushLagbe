@@ -43,17 +43,12 @@
 
 
 
-<!-- Start of ChatBot (www.chatbot.com) code -->
-<script type="text/javascript">
-    window.__be = window.__be || {};
-    window.__be.id = "5d5db26bd56ebc9fb233b399";
-    (function() {
-        var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
-        be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
-    })();
+<script src="https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js"></script>
+<script>
+  var myLandbot = new LandbotLivechat({
+    index: 'https://landbot.io/u/H-237505-D5V9QGG03CKS4QZH/index.html',
+  });
 </script>
-<!-- End of ChatBot code -->
 
 
          <!-- Chat Bot -->
@@ -107,6 +102,7 @@
         </div>
       </div>
 
+      {% if user.is_authenticated %}
         
         <div class="shadow-lg p-3 mb-5 bg-dark" style="text-align: center; color: white;"><h3 style="margin: 0; padding: 0;">Register yourself for the services you want to provide</h3></div>
 
@@ -155,6 +151,10 @@
     
   </div>
 </div>  
+
+{% else %}
+
+{% endif %}
 
 <div class="footer" style="margin: 0;">
     <p style="margin: 0;">Copyright © 2019 ManushLagbe.com. All rights reserved.</p>
