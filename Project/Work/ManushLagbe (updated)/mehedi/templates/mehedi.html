@@ -18,7 +18,7 @@
     <title>ManushLagbe | Mehedi Service</title>
   </head>
   <body class="parallax">
-  	
+  	{% if user.is_authenticated %}
   	<div class="container">
   		
   		<h1 class="glow">Mehedi Service</h1>
@@ -91,6 +91,9 @@
             </div> 
 
 	      </div>
+        {% else %}
+        <h1 style="color: white; background: #00000066;">Login to get access to this page!</h1>
+        {% endif %}
 	   </div>
 
 
