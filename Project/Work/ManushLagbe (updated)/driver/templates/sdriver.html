@@ -18,6 +18,7 @@
     <title>ManushLagbe | Driver Service</title>
   </head>
   <body class="parallax">
+    {% if user.is_authenticated %}
   	
   	<div class="container">
   		
@@ -98,6 +99,9 @@
                 </form>
             
               </div>
+              {% else %}
+              <h1>Login to get access to this page!</h1>
+              {% endif %}
             </div>
 
 
