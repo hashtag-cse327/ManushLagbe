@@ -18,6 +18,7 @@
     <title>ManushLagbe | Driver List</title>
 </head>
 <body>
+  {% if user.is_authenticated %}
 	<section>
 		<div class="customer" id="myContent2">
                     <div class="container" style="background-color: #ffffffb0; padding: 0; margin-top: 10px;">
@@ -64,6 +65,9 @@
                     </div>
                   </div>
 	</section>
+  {% else %}
+  <h1>Login to get access to this page!</h1>
+  {% endif %}
 
 </body>
 </html>
