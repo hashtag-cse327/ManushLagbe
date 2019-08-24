@@ -13,7 +13,123 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{% static 'css/driver.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.m{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/driver.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+    <title>ManushLagbe | Driver Service</title>
+  </head>
+  <body class="parallax">
+  	{% if user.is_authenticated %}
+  	<div class="container">
+  		
+  		<h1 class="glow">Driver Service</h1>
+
+            <div class="customer" >
+              <div class="container" style="background-color: #ffffffb0; padding: 0;">
+                <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>Give Your Information</h1></div>
+                <form class="contact_form" method="post" action="/driver_customer_form_submission/"  style="padding: 20px;">
+                  {% csrf_token %}
+                  <div class="row" style="text-align: right; color: black;">
+                    <div class="col-sm" style="width: 20%">
+                      <label><i class="fa fa-user"></i> Full Name</label>
+                      <input type="text" name="name" placeholder="Bahalul Haque" style="width: 70%; text-align: center;" required><br>
+                      <label><i class="fas fa-mobile-alt"></i> Mobile Number</label>
+                      <input type="text" name="mob" placeholder="01XXXXXXXXX" style="width: 70%; text-align: center;" required><br>
+                      <label><i class="fas fa-home"></i> Address</label>
+                      <input type="text" name="address" placeholder="House:5, Malibagh, Dhaka" style="width: 70%; text-align: center;" required><br>
+                      
+                    
+                  
+                  <input style="margin-top: 10px;" class="btn btn-primary"  name="checkout" value="Next" onclick="toggler('myContent1');">
+
+
+
+                    </div>
+
+                    <div class="col-sm">
+
+                      <div class="customer" id="myContent1" style="display:none;">
+                       <div class="container" style="background-color: #ffffffb0; padding: 0;">
+                        <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1 style="color: white;text-align: center;">Select Services</h1></div>
+              
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label class="input-group-text" for="inputGroupSelect01">Transmission?</label>
+                                </div>
+                                <select name="transmission" class="custom-select" id="inputGroupSelect01">
+                                  <option selected>Choose...</option>
+                                  <option value="Auto">Auto</option>
+                                  <option value="Manual">Manual</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label class="input-group-text" for="inputGroupSelect01">Hours?</label>
+                                </div>
+                                <select name="hours" class="custom-select" id="inputGroupSelect01">
+                                  <option selected>Choose...</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                </select>
+                            </div>
+
+                            <button style="margin-top: 10px;" class="btn btn-primary"  name="confirm" value="Confirm" >Confirm</button>
+
+            
+                       </div>
+                     </div> 
+
+                    </div>
+
+                  </div>
+                </form>
+            
+              </div>
+            </div> 
+
+            {% else %}
+            <h1 style="background: #343a4075;">Login to get access to this page!</h1>
+            {% endif %}
+
+     </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function toggler(divId) {
+      $("#" + divId).toggle();
+      }
+    </script>
+
+
+  </body>
+</html>
+
+{% endblock %}
+in.js" charset="utf-8"></script>
 
     <title>ManushLagbe | Driver Service</title>
   </head>
