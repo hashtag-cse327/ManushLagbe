@@ -5,6 +5,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Photographer
 from .models import Customer_Photographer
+from django.db.models import Q
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
@@ -17,6 +19,23 @@ class SphotoView(TemplateView):
 #class Photographer_list(TemplateView):
 #	template_name = 'p_list.html'
 
+# ---Fetches selected data from the database table  
+def search(request):
+	if request.method == 'POST':
+		etype = request.POST['etype']
+
+		if etype:
+			match = Photographer.objects.filter(Q(photographer_type__icontains=etype) | Q(photographer_type__icontains='both') )
+
+			if match:
+				return render(request,'p_list.html',{'sr':match})
+			else:
+				messages.error(request,'No Result Found')
+		else:
+			return HttpResponseRedirect('/customer_photographer_form_submission/')           
+
+	return render(request,'photography.html')
+#-----------------------------------------------------
 
 def photographer_form_submission(request):
 	print("Your data is saved!!!")
@@ -53,11 +72,11 @@ def customer_photographer_form_submission(request):
 
 	customer_photographer.save()
 
-	photographers = Photographer.objects.all()
-	context={
-		"object_list": photographers,
-	}
-	return render(request, "p_list.html", context)
+	# photographers = Photographer.objects.all()
+	# context={
+	# 	"object_list": photographers,
+	# }
+	# return render(request, "p_list.html", context)
 
 
 
