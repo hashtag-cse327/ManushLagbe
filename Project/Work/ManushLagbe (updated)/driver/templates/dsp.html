@@ -25,7 +25,11 @@
                       <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>List Of Service Providers</h1></div>
                       <form class="login-form" style="padding: 10px; text-align: left;color: black;"> 
                       	{% csrf_token %}
+
+                        
                           <div class="container" style="color: black;">
+                            {% if sr %}
+                            
                             <table class="table">
                               <thead class="thead-dark">
                                 <tr>
@@ -40,23 +44,24 @@
                                   <th></th>
                                 </tr>
                               </thead>
-                              {% for drivers in object_list %}
+                              {% for k in sr %}                  <!--  loop will run upto the number of data in sr -->
                               <tbody>
                                 <tr>
-                                  <td> {{drivers.name}}  </td>
-                                  <td> {{drivers.mob}} </td>
-                                  <td> {{drivers.address}} </td>
-                                  <td> {{drivers.gender}} </td>
-                                  <td> {{drivers.age}} </td>
-                                  <td> {{drivers.transmission}} </td>
-                                  <td> {{drivers.auto_price}} </td>
-                                  <td> {{drivers.manual_price}} </td>
+                                  <td> {{k.name}}  </td>
+                                  <td> {{k.mob}} </td>
+                                  <td> {{k.address}} </td>
+                                  <td> {{k.gender}} </td>
+                                  <td> {{k.age}} </td>
+                                  <td> {{k.transmission}} </td>
+                                  <td> {{k.auto_price}} </td>
+                                  <td> {{k.manual_price}} </td>
                                   <td> <button  class="btn btn-danger">HIRE</button> </td>
                                 </tr>
                                 
                               </tbody>
                               {% endfor %}
                             </table>
+                            {% endif %}
                           </div>
 
                          
