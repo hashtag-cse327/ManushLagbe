@@ -27,6 +27,7 @@
                       <form class="login-form" style="padding: 10px; text-align: left;color: black;"> {% csrf_token %}
             
                           <div class="container" style="color: black;">
+                            {% if sr %}
                             <table class="table">
                               <thead class="thead-dark">
                                 <tr>
@@ -38,9 +39,10 @@
                                   <th scope="col">Photographer Type</th>
                                   <th scope="col">Small Event Charge</th>
                                   <th scope="col">Large Event Charge</th>
+                                  <th></th>
                                 </tr>
                               </thead>
-                              {% for photography in object_list %}
+                              {% for photography in sr %}
                               <tbody>
                                 <tr>
                                   <td> {{photography.name}}  </td>
@@ -57,6 +59,7 @@
                               </tbody>
                               {% endfor %}
                             </table>
+                            {% endif %}
                           </div>
                       </form>             
                     </div>
