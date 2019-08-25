@@ -12,12 +12,24 @@ def register_page(request):                     #defines function  register_page
     context = {
         "form": form,
     }
-    if form.is_valid():
-        print(form.cleaned_data)
-        username = form.cleaned_data.get("username")
-        email = form.cleaned_data.get("email")
-        password = form.cleaned_data.get("password")
-        new_user = User.objects.create_user(username, email, password)
-        print(new_user)
-
+    if 'customer' in request.POST:
+        if form.is_valid():
+            print(form.cleaned_data)
+            username = form.cleaned_data.get("username")
+            email = form.cleaned_data.get("email")
+            password = form.cleaned_data.get("password")
+            new_user = User.objects.create_user(username, email, password)
+            new_user.is_staff= False                                           #is_staff set to false to identify the customers
+            new_user.save()
+            print(new_user)
+    elif 'serviceProvider' in request.POST:
+        if form.is_valid():
+            print(form.cleaned_data)
+            username = form.cleaned_data.get("username")
+            email = form.cleaned_data.get("email")
+            password = form.cleaned_data.get("password")
+            new_user = User.objects.create_user(username, email, password)
+            new_user.is_staff= True                                             #is_staff set to true to identify the service providers
+            new_user.save()
+            print(new_user)
     return render(request, "register.html", context)
