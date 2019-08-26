@@ -16,6 +16,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
 
     <title>ManushLagbe | Driver List</title>
+
+     <script>
+      function doOnClick(){
+        document.getElementById('change').value ='Hired';
+        document.getElementById('change').style.background= 'green';
+        document.getElementById('change').style.border= '3px solid green';
+        return false;      
+      }
+
+    </script>
+
 </head>
 <body>
   {% if user.is_authenticated %}
@@ -55,7 +66,9 @@
                                   <td> {{k.transmission}} </td>
                                   <td> {{k.auto_price}} </td>
                                   <td> {{k.manual_price}} </td>
-                                  <td> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">Hire</button> </td>
+                                  <td> 
+                                  <input type="button" value="Hire" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" id="change" onclick="doOnClick();"> 
+                                  </td>
                                 </tr>
                                 
                               </tbody>
