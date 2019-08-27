@@ -16,6 +16,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
 
     <title>ManushLagbe | Photographer List</title>
+    <script>
+      function doOnClick(){
+        document.getElementById('change').value ='Hired';
+        document.getElementById('change').style.background= 'green';
+        document.getElementById('change').style.border= '3px solid green';             
+        return false;      
+      }
+    </script>
 </head>
 <body class="parallax">
   {% if user.is_authenticated %}
@@ -24,7 +32,8 @@
 		<div class="customer" id="myContent2">
                     <div class="container" style="background-color: #ffffffb0; padding: 0; margin-top: 10px;">
                       <div class="shadow-lg p-3 mb-5 bg-dark rounded"><h1>List Of Service Providers</h1></div>
-                      <form class="login-form" style="padding: 10px; text-align: left;color: black;"> {% csrf_token %}
+                      <form class="login-form" style="padding: 10px; text-align: left;color: black;"> 
+                        {% csrf_token %}
             
                           <div class="container" style="color: black;">
                             {% if sr %}
@@ -53,7 +62,7 @@
                                   <td> {{photography.photographer_type}} </td>
                                   <td> {{photography.small_event_charge}} </td>
                                   <td> {{photography.large_event_charge}} </td>
-                                  <td> <button  class="btn btn-danger">HIRE</button> </td>
+                                  <td> <input type="button" value="Hire" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" id="change" onclick="doOnClick();"> </td>
                                 </tr>
                                 
                               </tbody>
@@ -61,14 +70,45 @@
                             </table>
                             {% endif %}
                           </div>
-                      </form>             
+                      </form>
+                       <!-- Modal -->
+                      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLongTitle" style="color: black; text-align: center;"><b>Service Provider has been notified!</b></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body" style="color: black; text-align: center;">
+                              Your service provider will contact with you soon....
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-success" data-dismiss="modal">Okay</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  
+                    </div>
+                  </div>             
                     </div>
         </div>
 	</div>
 	</section>
   {% else %}
-     <h1 style="color: white; background: #00000066;">Login to get access to this page!</h1>
-     {% endif %}
+  <h1 style="color: white; background: #00000066;">Login to get access to this page!</h1>
+  {% endif %}
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    })
+  </script>
 
 </body>
 </html>
