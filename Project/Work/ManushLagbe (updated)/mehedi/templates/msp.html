@@ -17,15 +17,6 @@
 
     <title>ManushLagbe | Mehedi Service</title>
 
-     <script>
-      function doOnClick(){
-        document.getElementById('change').value ='Hired';
-        document.getElementById('change').style.background= 'green';
-        document.getElementById('change').style.border= '3px solid green';
-        return false;      
-      }
-    </script>
-
   </head>
   <body class="parallax">
     {% if user.is_authenticated %}
@@ -66,7 +57,7 @@
                                   <td> {{m_artist.price_ohbs}} </td>
                                   <td> {{m_artist.price_thos}} </td>
                                   <td> {{m_artist.price_thbs}} </td>
-                                  <td> <input type="button" value="Hire" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" id="change" onclick="doOnClick();"> </td>
+                                  <td> <input type="button" value="Hire" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"> </td>
                                 </tr>
                                 
                               </tbody>
