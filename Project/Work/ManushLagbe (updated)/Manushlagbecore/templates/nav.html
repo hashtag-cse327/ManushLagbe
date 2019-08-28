@@ -46,16 +46,6 @@
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-
-        <ul>
-        <li class="nav-item">
-            {% if user.is_authenticated %}
-                 <h5 style="color: white;margin-right: 20px;margin-left: 100px;margin-top: 5px;"> Hi {{ user.username }} ! </h5>
-            {% else %}
-                  <h5 style="color: white;margin-left: 100px;margin-top: 5px;">You are not logged in</h5>
-            {% endif %}
-          </li>
-        </ul>
       
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -69,13 +59,25 @@
           <li class="nav-item">
            <a class="nav-link" href="{% url 'aboutus' %}">About Us</a>
           </li>
-          <li>
+          
+          {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {% if user.is_authenticated %}
-                  <p style="margin-top: 6px;"><a style="color: white;" href="{% url 'logout' %}">Logout</a></p>
-                {% else %}
-                 <p style="margin-top: 6px;"> <a style="color: white;" href="{% url 'login' %}">Login</a> </p>
+                 {{ user.username }}
                 {% endif %}
-          </li>
+              </a>
+              <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown" style="text-align: center;padding: 0;margin: 0;">
+                <p style="margin-top: 6px;"> <a style="color: white; font-size: 20px;" href="{% url 'logout' %}">   Logout</a> </p>
+              </div>
+            </li>
+                
+            {% else %}
+            <li class="nav-item">
+              <p style="margin-top: 6px;"> <a style="color: white;" href="{% url 'login' %}">Login</a> </p>
+            </li>
+          {% endif %}
+
         </ul>
       
       </div>
