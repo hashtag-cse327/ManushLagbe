@@ -20,21 +20,21 @@ class SphotoView(TemplateView):
 #	template_name = 'p_list.html'
 
 # ---Fetches selected data from the database table  
-def search(request):
-	if request.method == 'POST':
-		etype = request.POST['etype']
+# def search(request):
+# 	if request.method == 'POST':
+# 		etype = request.POST['etype']
 
-		if etype:
-			match = Photographer.objects.filter(Q(photographer_type__icontains=etype) | Q(photographer_type__icontains='both') )
+# 		if etype:
+# 			match = Photographer.objects.filter(Q(photographer_type__icontains=etype) | Q(photographer_type__icontains='both') )
 
-			if match:
-				return render(request,'p_list.html',{'sr':match})
-			else:
-				messages.error(request,'No Result Found')
-		else:
-			return HttpResponseRedirect('/customer_photographer_form_submission/')           
+# 			if match:
+# 				return render(request,'p_list.html',{'sr':match})
+# 			else:
+# 				messages.error(request,'No Result Found')
+# 		else:
+# 			return HttpResponseRedirect('/customer_photographer_form_submission/')           
 
-	return render(request,'photography.html')
+# 	return render(request,'photography.html')
 #-----------------------------------------------------
 
 def photographer_form_submission(request):
@@ -77,6 +77,21 @@ def customer_photographer_form_submission(request):
 	# 	"object_list": photographers,
 	# }
 	# return render(request, "p_list.html", context)
+
+	# ---Fetches selected data from the database table  
+	if request.method == 'POST':
+		etype = request.POST['etype']
+
+		if etype:
+			match = Photographer.objects.filter(Q(photographer_type__icontains=etype) | Q(photographer_type__icontains='both') )
+
+			if match:
+				return render(request,'p_list.html',{'sr':match})
+			else:
+				messages.error(request,'No Result Found')
+		else:
+			return HttpResponseRedirect('/customer_photographer_form_submission/')
+		#-----------------------------------------------------
 
 
 
