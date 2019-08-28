@@ -16,14 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
 
     <title>ManushLagbe | Photographer List</title>
-    <script>
-      function doOnClick(){
-        document.getElementById('change').value ='Hired';
-        document.getElementById('change').style.background= 'green';
-        document.getElementById('change').style.border= '3px solid green';             
-        return false;      
-      }
-    </script>
+    
 </head>
 <body class="parallax">
   {% if user.is_authenticated %}
@@ -62,7 +55,7 @@
                                   <td> {{photography.photographer_type}} </td>
                                   <td> {{photography.small_event_charge}} </td>
                                   <td> {{photography.large_event_charge}} </td>
-                                  <td> <input type="button" value="Hire" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" id="change" onclick="doOnClick();"> </td>
+                                  <td> <input type="button" value="Hire" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"> </td>
                                 </tr>
                                 
                               </tbody>
