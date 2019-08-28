@@ -22,6 +22,7 @@ def register_page(request):                     #defines function  register_page
             new_user.is_staff= False                                           #is_staff set to false to identify the customers
             new_user.save()
             print(new_user)
+            return redirect("login")
     elif 'serviceProvider' in request.POST:
         if form.is_valid():
             print(form.cleaned_data)
@@ -32,4 +33,5 @@ def register_page(request):                     #defines function  register_page
             new_user.is_staff= True                                             #is_staff set to true to identify the service providers
             new_user.save()
             print(new_user)
+            return redirect("login")
     return render(request, "register.html", context)
