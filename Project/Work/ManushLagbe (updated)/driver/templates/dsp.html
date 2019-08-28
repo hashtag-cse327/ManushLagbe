@@ -17,16 +17,6 @@
 
     <title>ManushLagbe | Driver List</title>
 
-     <script>
-      function doOnClick(){
-        document.getElementById('change').value ='Hired';
-        document.getElementById('change').style.background= 'green';
-        document.getElementById('change').style.border= '3px solid green';
-        return false;      
-      }
-
-    </script>
-
 </head>
 <body>
   {% if user.is_authenticated %}
@@ -67,7 +57,7 @@
                                   <td> {{k.auto_price}} </td>
                                   <td> {{k.manual_price}} </td>
                                   <td> 
-                                  <input type="button" value="Hire" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" id="change" onclick="doOnClick();"> 
+                                  <input type="button" value="Hire" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"> 
                                   </td>
                                 </tr>
                                 
