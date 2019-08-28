@@ -19,21 +19,21 @@ def SdriverView(request):
 	return render(request,'sdriver.html')
 
 # ---Fetches selected data from the database table  
-def search(request):
-	if request.method == 'POST':
-		transmission = request.POST['transmission']
+# def search(request):
+# 	if request.method == 'POST':
+# 		transmission = request.POST['transmission']
 
-		if transmission:
-			match = Driver.objects.filter(Q(transmission__icontains=transmission) | Q(transmission__icontains='both') )
+# 		if transmission:
+# 			match = Driver.objects.filter(Q(transmission__icontains=transmission) | Q(transmission__icontains='both') )
 
-			if match:
-				return render(request,'dsp.html',{'sr':match})
-			else:
-				messages.error(request,'no result found')
-		else:
-			return HttpResponseRedirect('/driver_customer_form_submission/')           
+# 			if match:
+# 				return render(request,'dsp.html',{'sr':match})
+# 			else:
+# 				messages.error(request,'no result found')
+# 		else:
+# 			return HttpResponseRedirect('/driver_customer_form_submission/')           
 
-	return render(request,'driver.html')
+# 	return render(request,'driver.html')
 #-----------------------------------------------------
 
 def driver_form_submission(request):
@@ -51,7 +51,7 @@ def driver_form_submission(request):
 	driver = Driver(name=name,mob=mob,
 		address=address,gender=gender,age=age, transmission = transmission, auto_price = auto_price, manual_price =manual_price)
 
-	driver.save()
+	driver.save()           
 
 	return render(request, 'sindex.html')
 
@@ -67,6 +67,22 @@ def driver_customer_form_submission(request):
 						hours=hours)
 
 	driver_customer.save()
+
+	# ---Fetches selected data from the database table
+	if request.method == 'POST':
+		transmission = request.POST['transmission']
+
+		if transmission:
+			match = Driver.objects.filter(Q(transmission__icontains=transmission) | Q(transmission__icontains='both') )
+
+			if match:
+				return render(request,'dsp.html',{'sr':match})
+			else:
+				messages.error(request,'no result found')
+		else:
+			return HttpResponseRedirect('/driver_customer_form_submission/')
+	#----------------------------------------------------------------------------------------------------------
+
 
 	# drivers= Driver.objects.all()
 	# context={
