@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'photography',
     'driver',
     'volunteer',
+    'coverage',
 ]
 
 MIDDLEWARE = [
